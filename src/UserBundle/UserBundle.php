@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\UserBundle;
+namespace UserBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
