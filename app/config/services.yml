@@ -6,7 +6,7 @@ parameters:
 services:
     login_listener:
         class: 'UserBundle\EventListener\LoginListener'
-        arguments: ['@security.context', '@doctrine']
+        arguments: ['@security.context', '@doctrine', '@service_container']
         tags:
             - { name: 'kernel.event_listener', event: 'security.interactive_login' }
 

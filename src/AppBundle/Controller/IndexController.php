@@ -16,11 +16,6 @@ class IndexController extends Controller
     public function indexAction()
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
-        if (is_string($user)) {
-            throw new \Exception("Anon dont work yo");
-        }
-
-        echo $user->hasRole('ROLE_ADMIN');
 
         return [
            'user' => $user
