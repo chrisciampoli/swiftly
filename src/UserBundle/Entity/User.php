@@ -19,9 +19,55 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\Column(type="string")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $position;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $rating;
+
     public function __construct()
     {
         parent::__construct();
         // your own logic
+        $this->setPosition('manager');
+        $this->setRating(3);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * @param mixed $position
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param mixed $rating
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
     }
 }

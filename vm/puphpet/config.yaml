@@ -80,7 +80,7 @@ firewall:
     install: '1'
     rules:
         hFirF1yfq9tZ:
-            port: '8080'
+            port: '80'
             priority: '100'
             proto: tcp
             action: accept
@@ -98,11 +98,11 @@ apache:
         - rewrite
     vhosts:
         4hLbqrYgqkVO:
-            servername: symfony.dev
+            servername: swiftly.dev
             serveraliases:
-                - www.symfony.dev
+                - dev.swiftnco.com
             docroot: /symfony/web
-            port: '8080'
+            port: '80'
             setenv:
                 - 'APP_ENV dev'
             override:

@@ -36,6 +36,22 @@ class SecurityController extends BaseController {
             $error = null;
         }
 
+        if ($securityContext->isGranted('ROLE_ADMIN')) {
+            return new RedirectResponse($router->generate('app_admin_dashboard'), 307);
+        }
+
+        if ($securityContext->isGranted('ROLE_MANAGER')) {
+            return new RedirectResponse($router->generate('app_manager_dashboard'), 307);
+        }
+
+        if ($securityContext->isGranted('ROLE_USER')) {
+            return new RedirectResponse($router->generate('app_employee_dashboard'), 307);
+        }
+
+        if (!$error instanceof AuthenticationException) {
+            $error = null; // The value does not come from the security component.
+        }
+
         // last username entered by the user
         $lastUsername = (null === $session) ? '' : $session->get(SecurityContextInterface::LAST_USERNAME);
 
