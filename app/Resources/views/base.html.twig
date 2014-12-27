@@ -4,9 +4,6 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Swiftly{% endblock %}</title>
         {% block stylesheets %}
-            {% stylesheets '@AppBundle/Resources/public/css/*' filter='cssrewrite' %}
-                <link rel="stylesheet" href="{{ asset_url }}" />
-            {% endstylesheets %}
             {% stylesheets '@AppBundle/Resources/public/css/font-awesome/css/*' filter='cssrewrite' %}
             <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
@@ -18,7 +15,9 @@
             <link href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css" />
             <!-- Custom Fonts -->
             <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
+            {% stylesheets '@AppBundle/Resources/public/css/*' filter='cssrewrite' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -31,7 +30,11 @@
             {% endjavascripts %}
 
             {% javascripts '@AppBundle/Resources/public/js/jquery-ui.js' %}
-                <script type="text/javascript" src="{{ asset_url }}"></script>
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+
+            {% javascripts '@AppBundle/Resources/public/js/bootstrap.min.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
 
             {% javascripts '@AppBundle/Resources/public/js/AdminLTE/app.js' %}

@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Company list</h1>
+    <div class="table table-responsive">
+        <table class="records_list">
+            <thead>
+            <tr>
+                <th>Company_id</th>
+                <th>Name</th>
+                <th>Contact1</th>
+                <th>Contact2</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Address1</th>
+                <th>Address2</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('admin_company_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    <td>{{ entity.name }}</td>
+                    <td>{{ entity.contact1 }}</td>
+                    <td>{{ entity.contact2 }}</td>
+                    <td>{{ entity.phone }}</td>
+                    <td>{{ entity.email }}</td>
+                    <td>{{ entity.address1 }}</td>
+                    <td>{{ entity.address2 }}</td>
+                    <td>{{ entity.city }}</td>
+                    <td>{{ entity.state }}</td>
+                    <td>{{ entity.zip }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('admin_company_show', { 'id': entity.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_company_edit', { 'id': entity.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+        <ul>
+        <li>
+            <a href="{{ path('admin_company_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

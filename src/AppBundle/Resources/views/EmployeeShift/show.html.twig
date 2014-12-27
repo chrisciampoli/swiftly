@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>EmployeeShift</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Employeeid</th>
+                <td>{{ entity.employeeId }}</td>
+            </tr>
+            <tr>
+                <th>Shiftid</th>
+                <td>{{ entity.shiftId }}</td>
+            </tr>
+            <tr>
+                <th>Locationid</th>
+                <td>{{ entity.locationId }}</td>
+            </tr>
+            <tr>
+                <th>Companyid</th>
+                <td>{{ entity.companyId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('manager_employees_shifts') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('manager_employees_shifts_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

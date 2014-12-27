@@ -39,11 +39,7 @@ security:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/test, roles: ROLE_ADMIN }
         # Admin
-        - { path: ^/admin/dashboard, roles: ROLE_ADMIN }
-        - { path: ^/admin/clients, roles: ROLE_ADMIN }
-        - { path: ^/admin/reports, roles: ROLE_ADMIN }
-        - { path: ^/admin/users, roles: ROLE_ADMIN }
-        - { path: ^/admin/invoices, roles: ROLE_ADMIN }
+        - { path: ^/admin/*, roles: ROLE_ADMIN }
         # Manager
         - { path: ^/manager/dashboard, roles: ROLE_MANAGER }
         - { path: ^/manager/shifts, roles: ROLE_MANAGER }

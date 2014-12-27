@@ -1,0 +1,53 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Location list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Companyid</th>
+                <th>Name</th>
+                <th>Address1</th>
+                <th>Address2</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Country</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('manager_location_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.companyId }}</td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.address1 }}</td>
+                <td>{{ entity.address2 }}</td>
+                <td>{{ entity.state }}</td>
+                <td>{{ entity.zip }}</td>
+                <td>{{ entity.country }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('manager_location_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('manager_location_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('manager_location_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

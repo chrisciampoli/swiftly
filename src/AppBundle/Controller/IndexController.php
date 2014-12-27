@@ -37,15 +37,5 @@ class IndexController extends Controller
         ];
     }
 
-    /**
-     * @Route("/test", name="test")
-     */
-    public function testAction()
-    {
-        $user = $this->container->get('fos_user.user_manager')
-            ->findUserByUsername('chris');
-
-        var_dump($user);die;
-        return $this->render('default/index.html.twig');
-    }
 }
+
