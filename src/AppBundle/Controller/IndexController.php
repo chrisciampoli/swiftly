@@ -28,13 +28,25 @@ class IndexController extends Controller
             return new RedirectResponse($router->generate('app_manager_dashboard'), 307);
         }
 
-        if ($securityContext->isGranted('ROLE_USER')) {
+        if ($securityContext->isGranted('ROLE_EMPLOYEE')) {
             return new RedirectResponse($router->generate('app_employee_dashboard'), 307);
+        }
+
+        if ($securityContext->isGranted('ROLE_USER')) {
+            return new RedirectResponse($router->generate('app_index_wait'), 307);
         }
 
         return [
            'user' => $user
         ];
+    }
+
+    /**
+     * @Route("/wait")
+     */
+    public function waitAction()
+    {
+        return 'Sorry';
     }
 
 }

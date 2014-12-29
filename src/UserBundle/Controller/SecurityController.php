@@ -44,6 +44,10 @@ class SecurityController extends BaseController {
             return new RedirectResponse($router->generate('app_manager_dashboard'), 307);
         }
 
+        if ($securityContext->isGranted('ROLE_EMPLOYEE')) {
+            return new RedirectResponse($router->generate('app_employee_dashboard'), 307);
+        }
+
         if ($securityContext->isGranted('ROLE_USER')) {
             return new RedirectResponse($router->generate('app_employee_dashboard'), 307);
         }
