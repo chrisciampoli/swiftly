@@ -49,7 +49,7 @@ class SecurityController extends BaseController {
         }
 
         if ($securityContext->isGranted('ROLE_USER')) {
-            return new RedirectResponse($router->generate('app_employee_dashboard'), 307);
+            return new RedirectResponse($router->generate('app_index_wait'), 307);
         }
 
         if (!$error instanceof AuthenticationException) {

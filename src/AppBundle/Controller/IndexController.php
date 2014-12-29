@@ -43,10 +43,11 @@ class IndexController extends Controller
 
     /**
      * @Route("/wait")
+     * @Template()
      */
     public function waitAction()
     {
-        return 'Sorry';
+        return [];
     }
 
 }
