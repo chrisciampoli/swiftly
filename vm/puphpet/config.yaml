@@ -128,9 +128,9 @@ nginx:
             www_root: /var/www/awesome.dev
             listen_port: '80'
             index_files:
-                - index.html
-                - index.htm
-                - index.php
+                - Index.html
+                - Index.htm
+                - Index.php
             envvars:
                 - 'APP_ENV dev'
             ssl_cert: ''

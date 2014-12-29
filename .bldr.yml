@@ -28,7 +28,7 @@ bldr:
                     files: [build/coverage, build/logs, build/behat, app/cache, app/logs]
                 -
                     type: filesystem:touch
-                    files: [build/coverage/index.html]
+                    files: [build/coverage/Index.html]
                 -
                     type: notify
                     message: Prepare Task Finished

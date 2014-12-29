@@ -255,7 +255,7 @@ $.fn.extend({
 		if ( this.length ) {
 			var elem = $( this[ 0 ] ), position, value;
 			while ( elem.length && elem[ 0 ] !== document ) {
-				// Ignore z-index if position is set to a value where z-index is ignored by the browser
+				// Ignore z-Index if position is set to a value where z-Index is ignored by the browser
 				// This makes behavior of this function consistent across browsers
 				// WebKit always returns auto if the element is positioned
 				position = elem.css( "position" );
@@ -263,7 +263,7 @@ $.fn.extend({
 					// IE returns 0 when zIndex is not specified
 					// other browsers return a string
 					// we ignore the case of nested elements with an explicit value of 0
-					// <div style="z-index: -10;"><div style="z-index: 0;"></div></div>
+					// <div style="z-Index: -10;"><div style="z-Index: 0;"></div></div>
 					value = parseInt( elem.css( "zIndex" ), 10 );
 					if ( !isNaN( value ) && value !== 0 ) {
 						return value;
@@ -1785,7 +1785,7 @@ var accordion = $.widget( "ui.accordion", {
 			}
 		// was active, active panel still exists
 		} else {
-			// make sure active index is correct
+			// make sure active Index is correct
 			options.active = this.headers.index( this.active );
 		}
 
@@ -3777,7 +3777,7 @@ var datepicker_instActive;
 function datepicker_getZindex( elem ) {
 	var position, value;
 	while ( elem.length && elem[ 0 ] !== document ) {
-		// Ignore z-index if position is set to a value where z-index is ignored by the browser
+		// Ignore z-Index if position is set to a value where z-Index is ignored by the browser
 		// This makes behavior of this function consistent across browsers
 		// WebKit always returns auto if the element is positioned
 		position = elem.css( "position" );
@@ -3785,7 +3785,7 @@ function datepicker_getZindex( elem ) {
 			// IE returns 0 when zIndex is not specified
 			// other browsers return a string
 			// we ignore the case of nested elements with an explicit value of 0
-			// <div style="z-index: -10;"><div style="z-index: 0;"></div></div>
+			// <div style="z-Index: -10;"><div style="z-Index: 0;"></div></div>
 			value = parseInt( elem.css( "zIndex" ), 10 );
 			if ( !isNaN( value ) && value !== 0 ) {
 				return value;
@@ -4523,7 +4523,7 @@ $.extend(Datepicker.prototype, {
 		if (!inst.inline) {
 			showAnim = $.datepicker._get(inst, "showAnim");
 			duration = $.datepicker._get(inst, "duration");
-			inst.dpDiv.css( "z-index", datepicker_getZindex( $( input ) ) + 1 );
+			inst.dpDiv.css( "z-Index", datepicker_getZindex( $( input ) ) + 1 );
 			$.datepicker._datepickerShowing = true;
 
 			if ( $.effects && $.effects.effect[ showAnim ] ) {
@@ -4898,7 +4898,7 @@ $.extend(Datepicker.prototype, {
 				iValue += num[0].length;
 				return parseInt(num[0], 10);
 			},
-			// Extract a name from the string value and convert to an index
+			// Extract a name from the string value and convert to an Index
 			getName = function(match, shortNames, longNames) {
 				var index = -1,
 					names = $.map(lookAhead(match) ? longNames : shortNames, function (v, k) {
@@ -8314,12 +8314,12 @@ var dialog = $.widget( "ui.dialog", {
 	_moveToTop: function( event, silent ) {
 		var moved = false,
 			zIndicies = this.uiDialog.siblings( ".ui-front:visible" ).map(function() {
-				return +$( this ).css( "z-index" );
+				return +$( this ).css( "z-Index" );
 			}).get(),
 			zIndexMax = Math.max.apply( null, zIndicies );
 
-		if ( zIndexMax >= +this.uiDialog.css( "z-index" ) ) {
-			this.uiDialog.css( "z-index", zIndexMax + 1 );
+		if ( zIndexMax >= +this.uiDialog.css( "z-Index" ) ) {
+			this.uiDialog.css( "z-Index", zIndexMax + 1 );
 			moved = true;
 		}
 
@@ -8350,7 +8350,7 @@ var dialog = $.widget( "ui.dialog", {
 		// opening. The overlay shouldn't move after the dialog is open so that
 		// modeless dialogs opened after the modal dialog stack properly.
 		if ( this.overlay ) {
-			this.overlay.css( "z-index", this.uiDialog.css( "z-index" ) - 1 );
+			this.overlay.css( "z-Index", this.uiDialog.css( "z-Index" ) - 1 );
 		}
 
 		this._show( this.uiDialog, this.options.show, function() {
@@ -10365,7 +10365,7 @@ $.extend( $.effects, {
 		} else {
 			$.extend( props, {
 				position: element.css( "position" ),
-				zIndex: element.css( "z-index" )
+				zIndex: element.css( "z-Index" )
 			});
 			$.each([ "top", "left", "bottom", "right" ], function(i, pos) {
 				props[ pos ] = element.css( pos );
@@ -12884,7 +12884,7 @@ var slider = $.widget( "ui.slider", $.ui.mouse, {
 		this.handle = this.handles.eq( 0 );
 
 		this.handles.each(function( i ) {
-			$( this ).data( "ui-slider-handle-index", i );
+			$( this ).data( "ui-slider-handle-Index", i );
 		});
 	},
 
@@ -13154,7 +13154,7 @@ var slider = $.widget( "ui.slider", $.ui.mouse, {
 				uiHash.values = this.values();
 			}
 
-			//store the last changed value index for reference when handles overlap
+			//store the last changed value Index for reference when handles overlap
 			this._lastChangedValue = index;
 
 			this._trigger( "change", event, uiHash );
@@ -13281,7 +13281,7 @@ var slider = $.widget( "ui.slider", $.ui.mouse, {
 
 	//internal values getter
 	// _values() returns array of values trimmed by min and max, aligned by step
-	// _values( index ) returns single value trimmed by min and max, aligned by step
+	// _values( Index ) returns single value trimmed by min and max, aligned by step
 	_values: function( index ) {
 		var val,
 			vals,
@@ -13400,7 +13400,7 @@ var slider = $.widget( "ui.slider", $.ui.mouse, {
 	_handleEvents: {
 		keydown: function( event ) {
 			var allowed, curVal, newVal, step,
-				index = $( event.target ).data( "ui-slider-handle-index" );
+				index = $( event.target ).data( "ui-slider-handle-Index" );
 
 			switch ( event.keyCode ) {
 				case $.ui.keyCode.HOME:
@@ -13465,7 +13465,7 @@ var slider = $.widget( "ui.slider", $.ui.mouse, {
 			this._slide( event, index, newVal );
 		},
 		keyup: function( event ) {
-			var index = $( event.target ).data( "ui-slider-handle-index" );
+			var index = $( event.target ).data( "ui-slider-handle-Index" );
 
 			if ( this._keySliding ) {
 				this._keySliding = false;
@@ -15583,7 +15583,7 @@ var tabs = $.widget( "ui.tabs", {
 			}
 		// was active, active tab still exists
 		} else {
-			// make sure active index is correct
+			// make sure active Index is correct
 			options.active = this.tabs.index( this.active );
 		}
 
@@ -15952,7 +15952,7 @@ var tabs = $.widget( "ui.tabs", {
 	},
 
 	_getIndex: function( index ) {
-		// meta-function to give users option to provide a href string instead of a numerical index.
+		// meta-function to give users option to provide a href string instead of a numerical Index.
 		if ( typeof index === "string" ) {
 			index = this.anchors.index( this.anchors.filter( "[href$='" + index + "']" ) );
 		}

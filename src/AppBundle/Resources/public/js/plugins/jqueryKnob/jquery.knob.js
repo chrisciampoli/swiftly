@@ -57,7 +57,7 @@
         this.h = 0; // canvas height
         this.$c = null; // jQuery canvas element
         this.c = null; // rendered canvas context
-        this.t = 0; // touches index
+        this.t = 0; // touches Index
         this.isInit = false;
         this.fgColor = null; // main color
         this.pColor = null; // previous color
@@ -306,7 +306,7 @@
                 s._draw();
             };
 
-            // get touches index
+            // get touches Index
             this.t = k.c.t(e);
 
             // First touch
